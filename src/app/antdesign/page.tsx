@@ -9,35 +9,35 @@ import { ConfigProvider, App } from 'antd';
 import { theme } from 'antd';
 import type { ThemeConfig } from 'antd';
 
-const darkTheme: ThemeConfig = {
-  algorithm: theme.darkAlgorithm,
+const lightTheme: ThemeConfig = {
+  algorithm: theme.defaultAlgorithm,
   token: {
     colorPrimary: '#1890ff',
-    colorBgContainer: '#1e1e1e',
-    colorBgElevated: '#2d2d2d',
-    colorBorder: '#434343',
-    colorText: '#ffffff',
+    colorBgContainer: '#ffffff',
+    colorBgElevated: '#fafafa',
+    colorBorder: '#d9d9d9',
+    colorText: '#000000',
     colorTextPlaceholder: '#8c8c8c',
   },
   components: {
     Select: {
-      optionSelectedBg: '#1890ff33',
-      optionActiveBg: '#1890ff1a',
+      optionSelectedBg: '#e6f7ff',
+      optionActiveBg: '#f5f5f5',
     },
     Input: {
-      colorBgContainer: '#2d2d2d',
+      colorBgContainer: '#ffffff',
     },
     InputNumber: {
-      colorBgContainer: '#2d2d2d',
+      colorBgContainer: '#ffffff',
     },
     DatePicker: {
-      colorBgContainer: '#2d2d2d',
+      colorBgContainer: '#ffffff',
     },
     Card: {
-      colorBgContainer: '#1e1e1e',
+      colorBgContainer: '#ffffff',
     },
     Statistic: {
-      colorText: '#ffffff',
+      colorText: '#000000',
     },
   },
 };
@@ -48,94 +48,67 @@ export default function AntDesignPage() {
   };
 
   return (
-    <ConfigProvider theme={darkTheme}>
+    <ConfigProvider theme={lightTheme}>
       <App>
         <Box sx={{
-          backgroundColor: '#121212',
+          backgroundColor: '#f5f5f5',
           minHeight: '100vh',
           padding: '20px',
-          color: 'white',
-          background: 'linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%)'
+          color: 'black',
         }}>
 
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Box
               component="h1"
               sx={{
-                background: 'linear-gradient(45deg, #1890ff, #722ed1)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: '#1890ff',
                 fontSize: '2.5rem',
                 fontWeight: 'bold',
                 mb: 1
               }}
             >
-              Ant Design
+              2. AntDesign
             </Box>
+          </Box>
+          <Box sx={{ mb: 6 }}>
             <Box
-              component="p"
               sx={{
-                color: '#8c8c8c',
-                fontSize: '1.1rem'
+                padding: '24px',
+                backgroundColor: '#ffffff',
+                borderRadius: '8px',
+                border: '1px solid #d9d9d9',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                maxWidth: '800px',
+                margin: '0 auto'
               }}
             >
-              Форма создания проекта и статистический дашборд
-            </Box>
-          </Box>
-
-          <Box sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
-            gap: 3,
-            mb: 4
-          }}>
-
-            <Box>
               <Box
+                component="h2"
                 sx={{
-                  padding: '24px',
-                  backgroundColor: '#1e1e1e',
-                  borderRadius: '12px',
-                  border: '1px solid #434343',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                  height: 'fit-content'
+                  color: '#000000',
+                  fontSize: '1.5rem',
+                  fontWeight: '600',
+                  mb: 3,
+                  textAlign: 'center'
                 }}
               >
-                <Box
-                  component="h2"
-                  sx={{
-                    color: '#ffffff',
-                    fontSize: '1.5rem',
-                    fontWeight: '600',
-                    mb: 3,
-                    textAlign: 'center'
-                  }}
-                >
-                  Создание проекта
-                </Box>
-                <ProjectForm onSubmit={handleFormSubmit} />
+                Создание проекта
               </Box>
-            </Box>
-
-            <Box>
-              <Box
-                sx={{
-                  backgroundColor: 'transparent',
-                  borderRadius: '12px',
-                  overflow: 'hidden'
-                }}
-              >
-                <Dashboard />
-              </Box>
+              <ProjectForm onSubmit={handleFormSubmit} />
             </Box>
           </Box>
-
-          <Box mt={5} sx={{ textAlign: 'center' }}>
-            <Link href="/" passHref>
-              <CustomButton variant="primary" size="large">
-                Вернуться на главную
-              </CustomButton>
-            </Link>
+          <Box>
+            <Box
+              sx={{
+                backgroundColor: '#ffffff',
+                borderRadius: '8px',
+                border: '1px solid #d9d9d9',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                overflow: 'hidden'
+              }}
+            >
+              <Dashboard />
+            </Box>
           </Box>
         </Box>
       </App>

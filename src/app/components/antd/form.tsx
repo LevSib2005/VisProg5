@@ -152,14 +152,12 @@ export default function ProjectForm({ onSubmit }: ProjectFormProps) {
         />
       </Form.Item>
 
-
       <Form.Item<FieldType>
         label="Бюджет"
         name="budget"
         rules={[
           { required: true, message: 'Пожалуйста, введите бюджет!' },
           { type: 'number', message: 'Бюджет должен быть числом!' },
-
           {
             validator: (_, value) => {
               if (!value || value <= 0) {

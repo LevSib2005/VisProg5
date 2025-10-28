@@ -76,18 +76,14 @@ export const ModalWindow = ({ isOpen, onClose }: ModalWindowProps) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered size={{ base: "sm", md: "md", lg: "lg" }}>
-      <ModalOverlay bg="blackAlpha.600" />
-      <ModalContent
-        as="form"
-        onSubmit={handleSubmit}
-        mx={4}
-      >
+    <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
+      <ModalOverlay />
+      <ModalContent>
         <ModalHeader>
-          Добавить нового пользователя
+          Добавить пользователя
         </ModalHeader>
         <ModalCloseButton />
-        <ModalBody pb={6}>
+        <ModalBody>
           <VStack spacing={4}>
             <FormControl isInvalid={!!errors.name}>
               <FormLabel>Имя</FormLabel>
@@ -132,7 +128,7 @@ export const ModalWindow = ({ isOpen, onClose }: ModalWindowProps) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button colorScheme="primary" mr={3} type="submit">
+          <Button colorScheme="primary" mr={3} type="submit" onClick={handleSubmit}>
             Сохранить
           </Button>
           <Button onClick={onClose} variant="outline">

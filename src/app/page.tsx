@@ -44,13 +44,13 @@ export default function Home() {
 
             <Box display="flex" gap={2} mb={4} flexWrap="wrap">
               <CustomButton variant="primary" size="large" onClick={() => alert('Primary')}>
-                Normal
+                Primary
               </CustomButton>
               <CustomButton variant="secondary" size="medium" loading>
-                Loading
+                Secondary
               </CustomButton>
               <CustomButton variant="danger" size="small" disabled>
-                Disabled
+                Danger
               </CustomButton>
             </Box>
 

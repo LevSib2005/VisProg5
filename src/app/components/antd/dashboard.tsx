@@ -23,31 +23,22 @@ interface ColumnChartData {
 }
 
 const lineData: LineChartData[] = [
-  { month: 'Янв', value: 120, category: 'Продажи' },
-  { month: 'Фев', value: 200, category: 'Продажи' },
-  { month: 'Мар', value: 150, category: 'Продажи' },
-  { month: 'Апр', value: 180, category: 'Продажи' },
-  { month: 'Май', value: 220, category: 'Продажи' },
-  { month: 'Июн', value: 190, category: 'Продажи' },
+  { month: 'Янв', value: 0, category: 'Лаб' },
+  { month: 'Фев', value: 14, category: 'Лаб' },
+  { month: 'Мар', value: 88, category: 'Лаб' },
+  { month: 'Апр', value: 0, category: 'Лаб' },
+  { month: 'Май', value: 52, category: 'Лаб' },
+  { month: 'Июн', value: 0, category: 'Лаб' },
 ];
 
 const pieData: PieChartData[] = [
-  { type: 'Категория A', value: 27 },
-  { type: 'Категория B', value: 25 },
-  { type: 'Категория C', value: 18 },
-  { type: 'Категория D', value: 15 },
-  { type: 'Категория E', value: 10 },
-  { type: 'Категория F', value: 5 },
+  { type: 'Трофимов', value: 10 },
+  { type: 'Малков', value: 20 },
 ];
 
 const columnData: ColumnChartData[] = [
-  { category: 'Пн', value: 120 },
-  { category: 'Вт', value: 200 },
-  { category: 'Ср', value: 150 },
-  { category: 'Чт', value: 80 },
-  { category: 'Пт', value: 70 },
-  { category: 'Сб', value: 110 },
-  { category: 'Вс', value: 130 },
+  { category: 'Студенты ИП316-315', value: 100 },
+  { category: 'Наиль', value: -20 },
 ];
 
 const lineConfig = {
@@ -56,8 +47,8 @@ const lineConfig = {
   yField: 'value',
   seriesField: 'category',
   point: {
-    size: 5,
-    shape: 'diamond',
+    size: 4,
+    shape: 'circle',
   },
   interactions: [
     {
@@ -66,45 +57,44 @@ const lineConfig = {
   ],
   height: 300,
   autoFit: true,
-  theme: 'dark',
-  color: ['#1890ff', '#722ed1', '#13c2c2', '#52c41a', '#faad14', '#f5222d'],
+  color: ['#1890ff'],
   xAxis: {
     line: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     tickLine: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     label: {
       style: {
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
   },
   yAxis: {
     line: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     tickLine: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     label: {
       style: {
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
     grid: {
       line: {
         style: {
-          stroke: '#434343',
+          stroke: '#f0f0f0',
         },
       },
     },
@@ -112,9 +102,10 @@ const lineConfig = {
   tooltip: {
     domStyles: {
       'g2-tooltip': {
-        backgroundColor: '#2d2d2d',
+        backgroundColor: '#ffffff',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-        color: '#ffffff',
+        color: '#000000',
+        border: '1px solid #d9d9d9',
       },
     },
   },
@@ -127,93 +118,92 @@ const pieConfig = {
   radius: 0.8,
   height: 300,
   autoFit: true,
-  color: ['#1890ff', '#722ed1', '#13c2c2', '#52c41a', '#faad14', '#f5222d'],
+  color: ['#1890ff', '#52c41a', '#faad14', '#f5222d', '#722ed1'],
   legend: {
     position: 'bottom',
+    itemName: {
+      style: {
+        fill: '#000000',
+      },
+    },
   },
   interactions: [
     {
       type: 'element-active',
     },
   ],
+  label: false, 
 };
 
 const columnConfig = {
   data: columnData,
   xField: 'category',
   yField: 'value',
-  label: {
-    position: 'top',
-    style: {
-      fill: '#FFFFFF',
-      opacity: 0.6,
-    },
-  },
+  label: false, 
   meta: {
     category: {
       alias: 'День недели',
     },
     value: {
-      alias: 'Активность',
+      alias: 'Задачи',
     },
   },
   height: 300,
   autoFit: true,
-  theme: 'dark',
-  color: ['#1890ff'],
+  color: ['#52c41a'],
   xAxis: {
     label: {
       autoHide: false,
       autoRotate: false,
       style: {
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
     title: {
       text: 'День недели',
       style: {
         fontSize: 14,
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
     line: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     tickLine: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
   },
   yAxis: {
     title: {
-      text: 'Активность',
+      text: 'Количество задач',
       style: {
         fontSize: 14,
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
     label: {
       style: {
-        fill: '#ffffff',
+        fill: '#000000',
       },
     },
     line: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     tickLine: {
       style: {
-        stroke: '#434343',
+        stroke: '#d9d9d9',
       },
     },
     grid: {
       line: {
         style: {
-          stroke: '#434343',
+          stroke: '#f0f0f0',
         },
       },
     },
@@ -221,13 +211,14 @@ const columnConfig = {
   tooltip: {
     domStyles: {
       'g2-tooltip': {
-        backgroundColor: '#2d2d2d',
+        backgroundColor: '#ffffff',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-        color: '#ffffff',
+        color: '#000000',
+        border: '1px solid #d9d9d9',
       },
     },
     formatter: (datum: any) => {
-      return { name: 'Активность', value: datum.value };
+      return { name: 'Задачи', value: datum.value };
     },
   },
 };
@@ -235,27 +226,16 @@ const columnConfig = {
 export default function Dashboard() {
   return (
     <div style={{ padding: '24px', backgroundColor: 'transparent' }}>
-      <Title level={2} style={{ color: '#ffffff', textAlign: 'center', marginBottom: '32px' }}>
-        Статистический дашборд
+      <Title level={2} style={{ color: '#000000', textAlign: 'center', marginBottom: '32px' }}>
+        Аналитика группы ИП-316
       </Title>
 
       <Row gutter={[16, 16]} style={{ marginBottom: '32px' }}>
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Общий доход"
-              value={112893}
-              precision={2}
-              valueStyle={{ color: '#3f8600' }}
-              prefix="$"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title="Новые пользователи"
-              value={1128}
+              title="Всего студентов"
+              value={21}
               valueStyle={{ color: '#1890ff' }}
             />
           </Card>
@@ -263,21 +243,28 @@ export default function Dashboard() {
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Завершенные задачи"
-              value={93}
-              valueStyle={{ color: '#cf1322' }}
-              suffix="/ 100"
+              title="Ходят на пары, где за пропуски казнят"
+              value={21}
+              valueStyle={{ color: '#52c41a' }}
             />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Коэффициент конверсии"
-              value={9.3}
-              precision={2}
+              title="Ходят на другие пары"
+              value={0}
+              valueStyle={{ color: '#faad14' }}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Средняя оценка"
+              value={14.88}
+              precision={1}
               valueStyle={{ color: '#722ed1' }}
-              suffix="%"
             />
           </Card>
         </Col>
@@ -286,7 +273,7 @@ export default function Dashboard() {
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={12}>
           <Card
-            title="Динамика продаж по месяцам"
+            title="Динамика сдачи лаб"
             style={{ height: '450px' }}
             styles={{
               body: {
@@ -306,7 +293,7 @@ export default function Dashboard() {
 
         <Col xs={24} lg={12}>
           <Card
-            title="Распределение по категориям"
+            title="Диаграмма, хз, не придумал"
             style={{ height: '450px' }}
             styles={{
               body: {
@@ -332,7 +319,7 @@ export default function Dashboard() {
 
         <Col xs={24}>
           <Card
-            title="Активность по дням недели"
+            title="Среднее количество баллов по визуальному программированию"
             style={{ height: '450px' }}
             styles={{
               body: {
